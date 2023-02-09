@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[SiteController::class,'home'])->name('home');
 
 
 
@@ -26,3 +25,5 @@ Route::prefix('admin')->group(function () {
     })->name('users');
 
 });
+
+Route::get('/test', [SiteController::class, 'test'])->name('test');
