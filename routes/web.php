@@ -33,3 +33,5 @@ Route::get('/message/create', [SiteController::class,'create'])->name('create');
 Route::post('/message/store', [SiteController::class, 'store'])->name('store');
 
 Route::get('/about', [SiteController::class, 'about'])->name('about');
+
+Route::get('/component',[SiteController::class,'component'])->name('component');

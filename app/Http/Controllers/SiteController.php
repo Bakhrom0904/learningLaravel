@@ -31,4 +31,9 @@ class SiteController extends Controller
     {
         return view('about');
     }
+
+    public function component()
+    {
+        return view('components');
+    }
 }
