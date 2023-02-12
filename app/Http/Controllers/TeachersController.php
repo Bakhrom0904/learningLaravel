@@ -43,13 +43,20 @@ class TeachersController extends Controller
 //        $teacher->phone=$request->phone;
 //        $teacher->email=$request->email;
 //        $teacher->save();
-        $validated = $request->validate([
-            'name' => 'required',
-            'address'=>'required',
-            'phone'=>'digits:6'
-        ]);
-
-        Teacher::create($request->all());
+//        $validated = $request->validate([
+//            'name' => 'required',
+//            'address'=>'required',
+//            'phone'=>'digits:6'
+//        ]);
+        $requestData=$request->all();
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $imageName=time().$file->getClientOriginalName();
+            $file->move('image/',$imageName);
+            $requestData['image']=$imageName;
+        }
+        Teacher::create($requestData);
         return redirect()->route('teachers.index');
     }
 
