@@ -37,12 +37,19 @@ class TeachersController extends Controller
      */
     public function store(Request $request)
     {
-        $teacher=new Teacher();
-        $teacher->name=$request->name;
-        $teacher->address=$request->address;
-        $teacher->phone=$request->phone;
-        $teacher->email=$request->email;
-        $teacher->save();
+//        $teacher=new Teacher();
+//        $teacher->name=$request->name;
+//        $teacher->address=$request->address;
+//        $teacher->phone=$request->phone;
+//        $teacher->email=$request->email;
+//        $teacher->save();
+        $validated = $request->validate([
+            'name' => 'required',
+            'address'=>'required',
+            'phone'=>'digits:6'
+        ]);
+
+        Teacher::create($request->all());
         return redirect()->route('teachers.index');
     }
 
