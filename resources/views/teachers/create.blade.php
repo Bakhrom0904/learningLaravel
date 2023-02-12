@@ -1,6 +1,6 @@
 <h2>Message create page</h2>
 
-<form action="/teachers" method="post">
+<form action="{{route('teachers.store')}}" method="post">
     <?=csrf_field();?>
     <label>Name</label>
     <input type="text" name="name"><br>
@@ -12,8 +12,4 @@
     <input type="text" name="email"><br>
     <input type="submit" value="Send">
 </form>
-<div>
-    @foreach($teachers as $teacher)
-        {{$teacher->name}}
-    @endforeach
-</div>
+
