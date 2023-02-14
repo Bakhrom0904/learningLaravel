@@ -157,7 +157,7 @@
                                         class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="/admin/assets/img/user.png"
                                                                                                          class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
                     <div class="dropdown-menu dropdown-menu-right pullDown">
-                        <div class="dropdown-title">Hello Sarah Smith</div>
+                        <div class="dropdown-title">{{auth()->user()->name}}</div>
                         <a href="profile.html" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
                         </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
@@ -166,9 +166,10 @@
                             Settings
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-                            Logout
-                        </a>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                        </form>
                     </div>
                 </li>
             </ul>
