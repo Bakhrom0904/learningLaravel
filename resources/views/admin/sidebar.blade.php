@@ -11,12 +11,20 @@
                 <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                        data-feather="briefcase"></i><span>Widgets</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="widget-chart.html">Chart Widgets</a></li>
-                    <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li>
-                </ul>
+                <a href="{{route('admin.users.index')}}" class="menu-toggle nav-link"><i
+                        data-feather="briefcase"></i><span>Users</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="{{route('admin.phones.index')}}" class="menu-toggle nav-link"><i
+                        data-feather="briefcase"></i><span>Phones</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="{{route('admin.phones.index')}}" class="menu-toggle nav-link"><i
+                        data-feather="briefcase"></i><span>Categories</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="{{route('admin.posts.index')}}" class="menu-toggle nav-link"><i
+                        data-feather="briefcase"></i><span>Posts</span></a>
             </li>
         </ul>
     </aside>
