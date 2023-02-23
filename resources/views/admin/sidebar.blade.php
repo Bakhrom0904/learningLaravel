@@ -26,6 +26,10 @@
                 <a href="{{route('admin.posts.index')}}" class="menu-toggle nav-link"><i
                         data-feather="briefcase"></i><span>Posts</span></a>
             </li>
+            <li class="dropdown">
+                <a href="{{route('admin.services.index')}}" class="menu-toggle nav-link"><i
+                        data-feather="briefcase"></i><span>Services</span></a>
+            </li>
         </ul>
     </aside>
 </div>

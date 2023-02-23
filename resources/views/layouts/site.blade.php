@@ -11,7 +11,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  
+
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -73,8 +73,11 @@
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog.html">Blog</a></li>
 
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="index.html" class="getstarted">Get Started</a></li>
+          <li><a href="contact.html">@lang('words.contact')</a></li>
+          <li><a href="index.html" class="getstarted">@lang('words.get_started')</a></li>
+            <li><a href="/lang/uz">UZB</a></li>
+            <li><a href="/lang/ru">Рус</a></li>
+            <li><a href="/lang/en">ENG</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

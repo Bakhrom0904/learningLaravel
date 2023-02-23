@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PhonesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ServicesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,17 +21,24 @@ use App\Http\Controllers\Admin\PostController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::prefix('admin')->name('admin.')->group(function (){
-   Route::resource('phones',PhonesController::class);
-   Route::resource('users',UsersController::class);
-    Route::resource('categories',CategoryController::class);
-    Route::resource('posts',PostController::class);
+Route::get('/lang/{lang}',function ($lang){
+    session(['lang'=>$lang]);
+    return back();
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+   Route::resource('phones',PhonesController::class);
+   Route::resource('users',UsersController::class);
+   Route::resource('categories',CategoryController::class);
+   Route::resource('posts',PostController::class);
+   Route::resource('services',ServicesController::class);
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

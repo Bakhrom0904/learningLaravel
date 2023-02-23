@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Http\Request;
-use App\Models\Post;
-use App\Models\Category;
 
-class PostController extends Controller
+class ServicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::paginate(2);
-        return view('admin.posts.index',compact('posts'));
+        $services=Service::all();
+        return view('admin.services.index',compact('services'));
     }
 
     /**
@@ -27,8 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        return view('admin.posts.create',compact('categories'));
+        return view('admin.services.create');
     }
 
     /**
@@ -39,8 +37,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create($request->all());
-        return redirect()->route('admin.posts.index');
+        Service::create($request->all());
+        return redirect()->route('admin.services.index');
     }
 
     /**
